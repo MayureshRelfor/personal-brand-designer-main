@@ -1,10 +1,10 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import { ResumeData } from "@/pages/Builder";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ResumeData } from "@/pages/Builder";
 import { Lightbulb, Plus, X } from "lucide-react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface SkillsSectionProps {
   resumeData: ResumeData;

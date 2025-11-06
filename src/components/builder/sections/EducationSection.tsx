@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
-import { ResumeData } from "@/pages/Builder";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ResumeData } from "@/pages/Builder";
 import { GraduationCap, Plus, Trash2 } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
 
 interface EducationSectionProps {
   resumeData: ResumeData;

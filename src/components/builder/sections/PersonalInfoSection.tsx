@@ -1,10 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
-import { ResumeData } from "@/pages/Builder";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ResumeData } from "@/pages/Builder";
 import { User } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
 
 interface PersonalInfoSectionProps {
   resumeData: ResumeData;

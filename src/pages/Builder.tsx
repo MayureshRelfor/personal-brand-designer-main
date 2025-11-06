@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Header } from "@/components/Header";
 import { ResumeForm } from "@/components/builder/ResumeForm";
 import { ResumePreview } from "@/components/builder/ResumePreview";
 import { Button } from "@/components/ui/button";
-import { Download, Save } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Download, Save } from "lucide-react";
+import { useState } from "react";
 
 export interface ResumeData {
   personalInfo: {
@@ -70,7 +70,7 @@ const Builder = () => {
   return (
     <div className="min-h-screen bg-muted/30">
       <Header />
-      
+
       <div className="sticky top-16 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
           <h1 className="text-lg font-semibold">Resume Builder</h1>
@@ -92,7 +92,7 @@ const Builder = () => {
           <div className="space-y-6">
             <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
           </div>
-          
+
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <ResumePreview resumeData={resumeData} />
           </div>

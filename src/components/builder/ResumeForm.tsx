@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
 import { ResumeData } from "@/pages/Builder";
-import { PersonalInfoSection } from "./sections/PersonalInfoSection";
-import { ExperienceSection } from "./sections/ExperienceSection";
+import { Dispatch, SetStateAction } from "react";
 import { EducationSection } from "./sections/EducationSection";
+import { ExperienceSection } from "./sections/ExperienceSection";
+import { PersonalInfoSection } from "./sections/PersonalInfoSection";
 import { SkillsSection } from "./sections/SkillsSection";
 
 interface ResumeFormProps {

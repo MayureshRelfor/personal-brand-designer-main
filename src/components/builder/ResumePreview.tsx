@@ -1,6 +1,6 @@
-import { ResumeData } from "@/pages/Builder";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { ResumeData } from "@/pages/Builder";
+import { Briefcase, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 
 interface ResumePreviewProps {
   resumeData: ResumeData;
