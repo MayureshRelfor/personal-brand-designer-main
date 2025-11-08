@@ -1,10 +1,12 @@
 import { Header } from "@/components/Header";
 import { ResumeForm } from "@/components/builder/ResumeForm";
-import { ResumePreview } from "@/components/builder/ResumePreview";
+import { ResumeRenderer } from "@/components/builder/ResumeRenderer";
 import { Button } from "@/components/ui/button";
+import { getTemplateById, TemplateDesign } from "@/config/resumeTemplates";
 import { useToast } from "@/hooks/use-toast";
 import { Download, Save } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export interface ResumeData {
   personalInfo: {
@@ -39,6 +41,13 @@ export interface ResumeData {
 
 const Builder = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const templateId = searchParams.get("template");
+
+  const [currentDesign, setCurrentDesign] = useState<TemplateDesign>(() =>
+    getTemplateById(templateId)
+  );
+
   const [resumeData, setResumeData] = useState<ResumeData>({
     personalInfo: {
       fullName: "",
@@ -52,6 +61,19 @@ const Builder = () => {
     education: [],
     skills: [],
   });
+
+  // Update design when templateId changes (dynamic template switching)
+  useEffect(() => {
+    const newDesign = getTemplateById(templateId);
+    setCurrentDesign(newDesign);
+
+    if (templateId) {
+      toast({
+        title: "Template loaded",
+        description: `Using ${newDesign.name} template design`,
+      });
+    }
+  }, [templateId, toast]);
 
   const handleDownload = () => {
     toast({
@@ -94,7 +116,8 @@ const Builder = () => {
           </div>
 
           <div className="lg:sticky lg:top-32 lg:h-fit">
-            <ResumePreview resumeData={resumeData} />
+            {/* <ResumePreview resumeData={resumeData} /> */}
+            <ResumeRenderer design={currentDesign} data={resumeData} />
           </div>
         </div>
       </div>

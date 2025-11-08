@@ -29,6 +29,12 @@ export const Header = () => {
               Features
             </a>
             <a
+              href="/templates"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full"
+            >
+              Templates
+            </a>
+            <a
               href="/builder"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full"
             >
