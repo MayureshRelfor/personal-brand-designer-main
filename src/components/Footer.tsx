@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 const footerLinks = {
   product: [
     { name: "Resume Templates", href: "/templates" },
-    { name: "Resume Builder", href: "/builder" },
+    { name: "Resume Builder", href: "/start" },
     { name: "Cover Letter Builder", href: "/cover-letter-builder" },
   ],
   resources: [

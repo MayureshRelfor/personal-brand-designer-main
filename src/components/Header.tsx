@@ -1,4 +1,5 @@
 import logo from "@/assets/logo.png";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -35,19 +36,25 @@ export const Header = () => {
               Templates
             </a>
             <a
-              href="/builder"
+              href="/start"
               className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full"
             >
               Resume Builder
             </a>
+            <a
+              href="/pricing"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all hover:after:w-full"
+            >
+              Pricing
+            </a>
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-slate-900">
-              Sign in
+            <button className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-slate-900" >
+              <Link to="/auth">Sign in</Link>
             </button>
             <button className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-200">
-              Create Resume
+              <Link to="/start">Create Resume</Link>
             </button>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Sparkles, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -32,11 +33,11 @@ export const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-200">
-                Create my resume
+                <Link to="/start">Create my resume</Link>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-700 bg-white border-2 border-slate-300 rounded-xl hover:border-slate-400 hover:shadow-lg transition-all duration-200">
-                Upload my resume
+                <Link to="/templates">Browse Templates</Link>
               </button>
             </div>
 

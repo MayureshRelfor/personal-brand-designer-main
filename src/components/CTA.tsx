@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const CTA = () => {
   return (
@@ -22,11 +23,14 @@ export const CTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <button className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-blue-700 bg-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-200">
-              Start building now
+              <Link to="/start">
+                Start building now</Link>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-xl hover:bg-white/20 hover:border-white/50 transition-all duration-200">
-              View examples
+              <Link to="/templates">
+                View examples
+              </Link>
             </button>
           </div>
 

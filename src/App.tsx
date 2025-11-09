@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./pages/About";
+import { AuthPage } from "./pages/Auth";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Builder from "./pages/Builder";
@@ -13,7 +14,9 @@ import CoverLetterBuilder from "./pages/CoverLetterBuilder";
 import FAQ from "./pages/FAQ";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { PricingPage } from "./pages/Pricing";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Start from "./pages/Start";
 import Support from "./pages/Support";
 import Templates from "./pages/Templates";
 import TermsOfService from "./pages/TermsOfService";
@@ -28,8 +31,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/start" element={<Start />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/builder" element={<Builder />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/cover-letter-builder" element={<CoverLetterBuilder />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />

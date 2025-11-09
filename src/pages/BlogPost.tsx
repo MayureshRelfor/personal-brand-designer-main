@@ -126,7 +126,7 @@ const BlogPost = () => {
                     Our templates are ATS-friendly and designed by career experts.
                   </p>
                   <Button size="lg" asChild>
-                    <Link to="/builder">Start Building</Link>
+                    <Link to="/start">Start Building</Link>
                   </Button>
                 </div>
               </div>
