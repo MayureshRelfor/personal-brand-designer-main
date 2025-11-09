@@ -4,6 +4,8 @@ import { AuthCard } from "../components/auth/Authcard.tsx";
 import { OAuthButton } from "../components/auth/OAuthButton";
 import { AuthInput } from './../components/auth/AuthInput';
 
+const NODE_APP = import.meta.env.VITE_NODE_APP;
+
 export const AuthPage = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [email, setEmail] = useState("");
@@ -51,7 +53,7 @@ export const AuthPage = () => {
     };
 
     const handleOAuth = (provider: string) => {
-        alert(`Redirecting to ${provider} OAuth...`);
+        window.location.href = `${NODE_APP}/auth/${provider}`;
     };
 
     return (
@@ -135,13 +137,13 @@ export const AuthPage = () => {
                             icon="🔍"
                             label="Google"
                             provider="Google"
-                            onClick={() => handleOAuth("Google")}
+                            onClick={() => handleOAuth("google")}
                         />
                         <OAuthButton
                             icon={<Github className="h-5 w-5" />}
                             label="GitHub"
                             provider="GitHub"
-                            onClick={() => handleOAuth("GitHub")}
+                            onClick={() => handleOAuth("gitHub")}
                         />
                     </div>
 

@@ -1,3 +1,4 @@
+import { sendRequest } from "@/util/Api";
 import { Crown, Sparkles, Zap } from "lucide-react";
 import { AICreditInfo } from "../components/pricing/AICreditInfo";
 import { PricingBenefits } from "../components/pricing/PricingBenefit";
@@ -65,8 +66,76 @@ const pricingPlans = [
 ];
 
 export const PricingPage = () => {
-    const handleSelectPlan = (planName: string) => {
-        alert(`Selected ${planName} plan! Redirecting to checkout...`);
+    const handleSelectPlan = async (planName: string) => {
+        const selectedPlan = pricingPlans.find(i => i.name === planName);
+        try {
+            const body = {
+                name: selectedPlan.name,
+                amount: selectedPlan.price,
+                currency: "INR",
+                receipt: `receipt#${Date.now()}`,
+                note: {},
+            };
+            const order = await sendRequest(
+                "/payment/razorpay/create-order",
+                "POST",
+                body
+            );
+
+            // Open Razorpay Checkout
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                amount: order.amount,
+                currency: order.currency,
+                name: "Mayuresh Developers",
+                description: "Test Transaction",
+                order_id: order.id,
+                callback_url: `${import.meta.env.VITE_NODE_APP
+                    }/payment/razorpay/payment-success?order_id=${order.id}`,
+                prefill: {
+                    name: "Mayuresh",
+                    email: "mayureshpatil533@gamil.com",
+                    contact: "8329365669",
+                },
+                theme: {
+                    color: "#F37254",
+                },
+                handler: function (response) {
+                    fetch(
+                        `${import.meta.env.VITE_NODE_APP
+                        }/payment/razorpay/verify-payment`,
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_signature: response.razorpay_signature,
+                            }),
+                        }
+                    )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.status === "ok") {
+                                window.location.href = `${import.meta.env.VITE_NODE_APP
+                                    }/payment/razorpay/payment-success?order_id=${order.id}`;
+                            } else {
+                                alert("Payment verification failed");
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error:", error);
+                            alert("Error verifying payment");
+                        });
+                },
+            };
+            const rzp = new window.Razorpay(options);
+            rzp.open();
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (

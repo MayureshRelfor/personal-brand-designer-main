@@ -14,6 +14,7 @@ import CoverLetterBuilder from "./pages/CoverLetterBuilder";
 import FAQ from "./pages/FAQ";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PaymentSuccessPage from "./pages/PaymentSuccess";
 import { PricingPage } from "./pages/Pricing";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Start from "./pages/Start";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/templates" element={<Templates />} />
           <Route path="/builder" element={<Builder />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/cover-letter-builder" element={<CoverLetterBuilder />} />
           <Route path="/blog" element={<Blog />} />

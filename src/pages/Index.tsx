@@ -4,13 +4,12 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */}
       <main>
         <Hero />
         <Stats />
